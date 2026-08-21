@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="description" content="AI agents for research: simulations, experimental automation, and visualisation">
+  <title>AI agents for research</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/black.css">
+  <link id="deck-theme" rel="stylesheet" href="assets/css/theme.css">
+  <script>
+    window.deckAssetVersion = Date.now();
+    document.getElementById('deck-theme').href = `assets/css/theme.css?v=${window.deckAssetVersion}`;
+  </script>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section data-markdown="slides.md"
+               data-separator="^---$"
+               data-separator-vertical="^--$"
+               data-separator-notes="^Note:"
+               data-charset="utf-8">
+      </section>
+    </div>
+  </div>
+
+  <script>
+    document.querySelector('[data-markdown]').dataset.markdown = `slides.md?v=${window.deckAssetVersion}`;
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/markdown/markdown.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/math/math.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/highlight.js"></script>
+  <script src="assets/js/local-assets.js"></script>
+  <script>
+    Reveal.initialize({
+      hash: true,
+      hashOneBasedIndex: true,
+      controls: true,
+      progress: true,
+      slideNumber: 'c/t',
+      transition: 'fade',
+      backgroundTransition: 'fade',
+      width: 1600,
+      height: 900,
+      margin: 0.055,
+      minScale: 0.2,
+      maxScale: 2.0,
+      plugins: [ RevealMarkdown, RevealNotes, RevealMath.KaTeX, RevealHighlight ]
+    }).then(() => {
+      if (!window.location.hash) {
+        window.history.replaceState(null, '', `${window.location.pathname}${window.location.search}#/1`);
+      }
+    });
+  </script>
+</body>
+</html>
+

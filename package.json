@@ -1,0 +1,12 @@
+{
+  "name": "ai-agents-for-research-talk",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Reveal.js talk on AI agents for simulations, experimental automation, and scientific visualisation",
+  "scripts": {
+    "serve": "python -m http.server 8000",
+    "validate": "node scripts/validate.mjs",
+    "build": "node scripts/build.mjs"
+  }
+}
+
