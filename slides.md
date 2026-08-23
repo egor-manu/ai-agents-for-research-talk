@@ -1,882 +1,685 @@
 <!-- SLIDE 01 -->
-<!-- .slide: class="title-slide" data-background-image="assets/images/hero.webp" data-background-size="cover" data-background-position="center" -->
+<!-- .slide: class="title-slide" data-background-gradient="radial-gradient(circle at 78% 30%, rgba(74,211,255,.16), transparent 32%), linear-gradient(120deg, #030712 0%, #071426 58%, #120b19 100%)" -->
 
 # AI agents for research:
 
 ## simulations, experimental automation, and visualisation
 
-<div class="speaker">
-  <strong>Egor Manuylovich</strong>
-  <span>Aston Institute of Photonic Technologies</span>
-  <span>Aston University</span>
-</div>
+<p>Egor Manuylovich<br>
+Aston Institute of Photonic Technologies<br>
+Aston University</p>
+
+<small class="muted">What was unimaginable half a year ago is now simply a must.</small>
 
 Note:
-This talk connects three research workflows through one human-agent operating model.
+Introduce the three research workflows and the common human-agent operating model.
 
 [Sources]
-- Visual and copy adapted from the speaker's earlier AI agents for research deck in `references/`.
+- Content adapted from the speaker's earlier AI agents for research presentation in `references/`.
+- Blender section adapted from the speaker's published Coding agents + Blender MCP talk.
 [/Sources]
 
 ---
 
 <!-- SLIDE 02 -->
 
-<p class="eyebrow">The change</p>
+# What this talk is about
 
-# The research bottleneck has moved
-
-<div class="research-chain">
-  <span>Idea</span><span>Model</span><span>Code</span><span>Experiment</span><span>Data</span><span>Figure</span><span>Paper</span>
+<div class="talk-grid">
+  <div><span>01</span><strong>Coding agents</strong><small>What changes when software can act in its own loop</small></div>
+  <div><span>02</span><strong>Scientific simulations</strong><small>From fast prompting to specifications and tests</small></div>
+  <div><span>03</span><strong>Experimental automation</strong><small>From vendor APIs to reproducible experiments</small></div>
+  <div><span>04</span><strong>Scientific visualisation</strong><small>From a physical brief to a Blender scene</small></div>
 </div>
-
-<p class="statement">More research time is spent on <span class="accent">software between the scientific steps</span>: setup, integration, debugging, automation, plotting, and documentation.</p>
-
-<p class="bottom-line">Agents make previously uneconomic research software practical, but only when scientific validation remains explicit.</p>
-
-Note:
-Use the chain to show that agents do not replace theory or experiment; they reduce friction between them.
-
-[Sources]
-- Speaker's earlier AI agents for research deck, slides 4-5.
-[/Sources]
 
 ---
 
 <!-- SLIDE 03 -->
 
-<p class="eyebrow">What is different</p>
+# What are AI coding agents?
 
-# An agent is software inside its own work loop
-
-<div class="loop large">
-  <span>read context</span><i>&rarr;</i><span>act</span><i>&rarr;</i><span>observe</span><i>&rarr;</i><span>revise</span>
+<div class="agent-table">
+  <div><strong>Chatbot</strong><span>Answers questions and generates code snippets on demand.</span><small>ChatGPT · Claude · Gemini</small></div>
+  <div><strong>Autocomplete</strong><span>Suggests code while you type, one line or block at a time.</span><small>Copilot · Cursor</small></div>
+  <div class="active"><strong>Agent</strong><span>Reads files, edits codebases, runs tests, sees errors, and iterates.</span><small>Codex · Claude Code · Cursor</small></div>
 </div>
 
-<div class="compare">
-  <div>
-    <h3>Chatbot</h3>
-    <p>Answers a prompt and returns code or advice.</p>
-  </div>
-  <div>
-    <h3>Agent</h3>
-    <p>Reads files, edits a project, runs tools and tests, sees failures, and iterates.</p>
-  </div>
-</div>
-
-<p class="bottom-line">The important shift is from generating snippets to changing and checking a working system.</p>
-
-Note:
-Keep the definition operational. The tool loop matters more than branding or model names.
-
-[Sources]
-- Speaker's earlier AI agents for research deck, slide 3.
-- Speaker's Blender agents talk, conceptual agent loop.
-[/Sources]
+<div class="bottom-line">The key difference: an agent can inspect, act, observe the result, and revise.</div>
 
 ---
 
 <!-- SLIDE 04 -->
 
-<p class="eyebrow">Division of labour</p>
+# AI-assisted simulations: what changes?
 
-# The researcher keeps scientific authority
-
-<div class="role-grid">
+<div class="compare">
   <div>
-    <h3>Researcher</h3>
+    <h3>Before</h3>
     <ul>
-      <li>Defines the physics and assumptions</li>
-      <li>Sets tests and acceptance criteria</li>
-      <li>Interprets outputs and edge cases</li>
-      <li>Decides what counts as evidence</li>
+      <li>Slow, manual simulation setup</li>
+      <li>Fragmented scripts per use-case</li>
+      <li>Manual plotting and formatting</li>
+      <li>Limited parameter-space exploration</li>
+      <li>Documentation as an afterthought</li>
     </ul>
   </div>
   <div>
-    <h3>Agent</h3>
+    <h3>With agents</h3>
     <ul>
-      <li>Builds modules and interfaces</li>
-      <li>Runs tests and parameter sweeps</li>
-      <li>Refactors, documents, and plots</li>
-      <li>Repeats mechanical feedback loops</li>
+      <li>Parameter sweeps generated quickly</li>
+      <li>Plotting pipelines automated end-to-end</li>
+      <li>Tests and documentation added early</li>
+      <li>Faster hypothesis iteration</li>
+      <li>Modular, reusable components</li>
     </ul>
   </div>
 </div>
 
-<p class="bottom-line">You do the science. The agent increases the speed and scope of implementation.</p>
-
-Note:
-Scientific responsibility cannot be delegated to a system that does not know which hidden assumptions matter.
-
-[Sources]
-- Speaker's earlier AI agents for research deck, slides 8 and 11.
-[/Sources]
+<div class="bottom-line">The biggest gain is not typing faster. It is making previously uneconomic research software practical.</div>
 
 ---
 
 <!-- SLIDE 05 -->
 
-<p class="eyebrow">The talk</p>
+# The research bottleneck is shifting
 
-# Three domains, one operating model
-
-<div class="triptych">
-  <div><strong>Simulations</strong><span>Turn equations and conventions into tested software.</span></div>
-  <div><strong>Automation</strong><span>Turn device APIs into reproducible experiments.</span></div>
-  <div><strong>Visualisation</strong><span>Turn scientific structure and data into inspectable scenes.</span></div>
+<div class="research-chain">
+  <span>Idea</span><span>Model</span><span>Code</span><span>Experiment</span><span>Data</span><span>Figure</span><span>Paper</span>
 </div>
 
-<p class="statement small">In every case: <span class="accent">specify clearly, let the agent work, and validate against reality.</span></p>
+<div class="statement small-statement">Research is increasingly software-heavy: glue code, plotting, automation, interfaces, debugging, and data wrangling.</div>
 
-Note:
-This is the organising thesis for the rest of the talk.
-
-[Sources]
-- Synthesis of the speaker's two earlier talks.
-[/Sources]
+<div class="two-statements">
+  <p><strong>Agents reduce software friction.</strong><br><small>Generate, test, refactor, document, and connect systems.</small></p>
+  <p><strong>Verification is often easier than construction.</strong><br><small>But only when the researcher knows what must remain true.</small></p>
+</div>
 
 ---
 
 <!-- SLIDE 06 -->
-<!-- .slide: class="section-slide section-sim" -->
 
-<div class="section-number">01</div>
+# Examples from simulation work
 
-# Simulations
+<div class="image-pair simulation-examples">
+  <figure>
+    <img class="light-frame" src="assets/images/simulation-system.webp" alt="Photonic system represented as a sequence of trainable optical elements">
+    <figcaption>Photonic elements mapped to reusable computational layers</figcaption>
+  </figure>
+  <figure>
+    <img class="light-frame" src="assets/images/simulation-model.webp" alt="Structure of a mode-coupling matrix for a three-mode fibre">
+    <figcaption>Mode decomposition with explicit orthogonality structure</figcaption>
+  </figure>
+</div>
 
-<p>When code becomes part of the model, tests become part of the science.</p>
-
-Note:
-Section transition.
-
-[Sources]
-- Speaker's earlier AI agents for research deck, simulation section.
-[/Sources]
+<div class="bottom-line">The agent can build the machinery; the researcher must define what the machinery means.</div>
 
 ---
 
 <!-- SLIDE 07 -->
 
-<p class="eyebrow">Scientific software</p>
+# Vibe coding
 
-# Simulation code is part of the scientific instrument
+<div class="statement">Fast prompting with minimal planning: “make me a simulator”, then iterate until it looks right.</div>
 
-<div class="two-col wide-left">
+<div class="compare compact">
   <div>
-    <p class="statement">An agent can build the machinery quickly. It cannot decide whether the machinery expresses the right physics.</p>
+    <h3>Good for</h3>
     <ul>
-      <li>Equations and approximations</li>
-      <li>Units and sign conventions</li>
-      <li>Boundary and limiting cases</li>
-      <li>Numerical stability</li>
+      <li>One-off scripts and quick plots</li>
+      <li>Educational demonstrations</li>
+      <li>Small GUIs and data explorers</li>
+      <li>Fast hypothesis sketches</li>
     </ul>
   </div>
-  <figure class="full-figure">
-    <img class="light-frame" src="assets/images/simulation-system.webp" alt="Published photonic system diagram">
-    <figcaption>Example photonic system used as a simulation target</figcaption>
-  </figure>
+  <div>
+    <h3>Risk</h3>
+    <ul>
+      <li>Hidden bugs that look plausible</li>
+      <li>Hard-to-maintain code</li>
+      <li>Poor reproducibility</li>
+      <li>Difficult validation and extension</li>
+    </ul>
+  </div>
 </div>
 
-Note:
-Frame simulation code as an experimental apparatus: it requires calibration and known checks.
-
-[Sources]
-- System diagram embedded in the speaker's earlier AI agents for research deck.
-[/Sources]
+<div class="bottom-line">Useful when failure is cheap; unsafe as the final method for research software.</div>
 
 ---
 
 <!-- SLIDE 08 -->
 
-<p class="eyebrow">Use the right mode</p>
-
-# Fast prompting is useful only when failure is cheap
+# Where agents are good and where not
 
 <div class="compare">
   <div>
-    <h3>Useful for exploration</h3>
+    <h3>Good at</h3>
     <ul>
-      <li>One-off scripts and plots</li>
-      <li>Educational demonstrations</li>
-      <li>Interface sketches</li>
-      <li>Early hypothesis exploration</li>
+      <li>APIs, wrappers, and boilerplate</li>
+      <li>Plotting and interactive dashboards</li>
+      <li>File handling and data pipelines</li>
+      <li>Refactoring and documentation</li>
+      <li>Writing and running tests</li>
     </ul>
   </div>
   <div>
-    <h3>Unsafe as a final method</h3>
+    <h3>Weak at</h3>
     <ul>
-      <li>Hidden bugs can look plausible</li>
-      <li>Assumptions remain undocumented</li>
-      <li>Iteration becomes harder to reproduce</li>
-      <li>Correctness is judged by appearance</li>
+      <li>Scientific correctness</li>
+      <li>Hidden physical assumptions</li>
+      <li>Numerical validity and stability</li>
+      <li>Domain-specific conventions</li>
+      <li>Physical intuition</li>
     </ul>
   </div>
 </div>
 
-<p class="bottom-line">Use rapid prompting to discover the problem. Use specifications and tests to produce research software.</p>
-
-Note:
-Avoid dismissing vibe coding completely; it is a useful exploratory mode with a clear boundary.
-
-[Sources]
-- Speaker's earlier AI agents for research deck, slides 7-9.
-[/Sources]
+<div class="bottom-line accent-line">The researcher remains the scientific authority and is responsible for the result.</div>
 
 ---
 
 <!-- SLIDE 09 -->
 
-<p class="eyebrow">Specification</p>
+# Vibe coding → spec-driven development
 
-# A specification turns intent into checkable physics
+<div class="loop-line">
+  <span>requirements</span><i>→</i><span>equations</span><i>→</i><span>architecture</span><i>→</i><span>tests</span><i>→</i><span>implementation</span><i>→</i><span>validation</span>
+</div>
 
 <div class="spec-strip">
-  <div><strong>Model</strong><span>Governing equations and the physical regime.</span></div>
-  <div><strong>Conventions</strong><span>FFT sign, phase, coordinates, units, and normalisation.</span></div>
-  <div><strong>Architecture</strong><span>Modules, interfaces, data flow, and saved artefacts.</span></div>
-  <div><strong>Acceptance</strong><span>Analytical limits, conservation laws, and tolerances.</span></div>
+  <div><strong>agent.md</strong><span>Physics, conventions, architecture, and expected behaviour.</span></div>
+  <div><strong>Acceptance tests</strong><span>Define what correct output looks like before implementation.</span></div>
+  <div><strong>Project structure</strong><span>Modular components let the agent work on isolated responsibilities.</span></div>
+  <div><strong>Reproducibility</strong><span>Specs and version control make the work auditable and extensible.</span></div>
 </div>
-
-<div class="loop">
-  <span>requirements</span><i>&rarr;</i><span>physics</span><i>&rarr;</i><span>tests</span><i>&rarr;</i><span>implementation</span><i>&rarr;</i><span>validation</span>
-</div>
-
-Note:
-The specification is an external memory for both the human and the agent.
-
-[Sources]
-- Speaker's earlier AI agents for research deck, slides 9-10.
-[/Sources]
 
 ---
 
 <!-- SLIDE 10 -->
 
-<p class="eyebrow">Tests as scientific statements</p>
+# Why specifications and tests matter in science
 
-# A test should say what must remain true
-
-<div class="test-list">
-  <div><b>01</b><span>Zero nonlinearity produces linear propagation.</span></div>
-  <div><b>02</b><span>Zero length produces the identity transfer matrix.</span></div>
-  <div><b>03</b><span>A lossless system conserves energy.</span></div>
-  <div><b>04</b><span>A symmetric beamsplitter splits equally.</span></div>
-  <div><b>05</b><span>A phase wrap at 2&pi; preserves field continuity.</span></div>
+<div class="test-grid">
+  <div><strong>Physical assumptions</strong><span>Steady-state versus dynamic behaviour must be explicit.</span></div>
+  <div><strong>Interferometer phase</strong><span>Reflection and transmission conventions change the result.</span></div>
+  <div><strong>Propagation operator</strong><span>The phase-accumulation sign determines physical meaning.</span></div>
+  <div><strong>Energy conservation</strong><span>Lossless limits must remain lossless.</span></div>
+  <div><strong>Orthogonality</strong><span>Modal constraints must be built into the implementation.</span></div>
+  <div><strong>Units</strong><span>Radians, degrees, nanometres, and micrometres cannot silently mix.</span></div>
 </div>
 
-<p class="bottom-line">If you cannot define a failure condition, you probably do not yet understand the system well enough to delegate it.</p>
-
-Note:
-These tests are compact expressions of physical understanding, not merely software hygiene.
-
-[Sources]
-- Speaker's earlier AI agents for research deck, slide 14.
-[/Sources]
+<div class="bottom-line">In research, “looks correct” is not sufficient.</div>
 
 ---
 
 <!-- SLIDE 11 -->
 
-<p class="eyebrow">Debugging</p>
+# Human-agent research loop
 
-# Agents accelerate debugging and create new failure modes
-
-<div class="failure-list">
-  <p><strong>Beamsplitter convention</strong> reflection and transmission phases differ.</p>
-  <p><strong>Arm-length sum vs difference</strong> a plausible formula can encode the wrong geometry.</p>
-  <p><strong>Propagation sign</strong> a sign change reverses the physical interpretation.</p>
-  <p><strong>Unit mismatch</strong> nm, &micro;m, radians, and degrees mix silently.</p>
-  <p><strong>Numerical instability</strong> a smooth plot can hide a failing method.</p>
+<div class="role-grid">
+  <div>
+    <h3>Human</h3>
+    <ul>
+      <li>Defines the physics and mathematics</li>
+      <li>Writes the specification</li>
+      <li>Sets acceptance criteria and tests</li>
+      <li>Checks physical meaning and edge cases</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Agent</h3>
+    <ul>
+      <li>Creates project structure</li>
+      <li>Implements modules from the specification</li>
+      <li>Writes tests and runs sweeps</li>
+      <li>Refactors, documents, and plots</li>
+    </ul>
+  </div>
 </div>
 
-<p class="bottom-line warm">Plausible wrongness is more dangerous than an obvious crash.</p>
-
-Note:
-The agent's speed increases the need for fast, targeted scientific checks.
-
-[Sources]
-- Speaker's earlier AI agents for research deck, slide 13.
-[/Sources]
+<div class="bottom-line">You do the science; the agent is your hard-working implementation partner.</div>
 
 ---
 
 <!-- SLIDE 12 -->
 
-<p class="eyebrow">Workflow</p>
+# Example simulation workflow
 
-# A useful simulation loop separates building from believing
-
-<div class="stage-flow">
-  <div><strong>1. Specify physics</strong><span>Equations, assumptions, conventions, and known limits.</span></div>
-  <div><strong>2. Implement and test</strong><span>Modules, unit tests, physical checks, and benchmark cases.</span></div>
-  <div><strong>3. Sweep and interpret</strong><span>Parameter studies, plots, human interpretation, and revised assumptions.</span></div>
+<div class="workflow-row">
+  <div><span>1</span><strong>Physics specification</strong><small>Equations · assumptions · conventions · edge cases</small></div>
+  <i>→</i>
+  <div><span>2</span><strong>Implementation and tests</strong><small>Modules · unit tests · conservation checks · analytical limits</small></div>
+  <i>→</i>
+  <div><span>3</span><strong>Plots and interpretation</strong><small>Sweeps · transfer functions · human review · revised specification</small></div>
 </div>
 
-<figure class="full-figure">
-  <img class="light-frame" src="assets/images/simulation-model.webp" alt="Model structure for a photonic simulation">
-  <figcaption>Concrete system structure makes a useful benchmark for generated code</figcaption>
-</figure>
-
-Note:
-The researcher can revise the specification when the outputs reveal an incomplete assumption.
-
-[Sources]
-- Speaker's earlier AI agents for research deck, slides 6 and 12.
-[/Sources]
+<div class="bottom-line">Separate building from believing.</div>
 
 ---
 
 <!-- SLIDE 13 -->
 
-<p class="eyebrow">Case study</p>
+# Debugging with agents
 
-# Optical Circuit Lab makes the model inspectable
-
-<div class="two-col split-line">
-  <div>
-    <p class="statement">A reusable simulator is more valuable than a single successful plot.</p>
-    <ul>
-      <li>Explicit optical components</li>
-      <li>Analytical benchmark cases</li>
-      <li>Interactive parameter changes</li>
-      <li>Plots generated from one data path</li>
-    </ul>
-  </div>
-  <div>
-    <h3>The agent's contribution</h3>
-    <p>Architecture, implementation, tests, interface, refactoring, and documentation.</p>
-    <h3>The researcher's contribution</h3>
-    <p>Physical conventions, acceptance criteria, interpretation, and approval.</p>
-  </div>
+<div class="failure-list">
+  <p><strong>Wrong beamsplitter convention</strong><span>Reflection and transmission phases differ by π.</span></p>
+  <p><strong>Arm-length sum versus difference</strong><span>The phase depends on the difference, not the sum.</span></p>
+  <p><strong>Propagation sign error</strong><span>The sign in e<sup>ikz</sup> changes convergence into divergence.</span></p>
+  <p><strong>Numerical instability</strong><span>Plots can hide it until a limiting-case test fails.</span></p>
+  <p><strong>Unit mismatch</strong><span>Intermediate variables silently mix incompatible scales.</span></p>
 </div>
 
-Note:
-Prepare the local demo before presenting. Keep static screenshots available as a fallback.
-
-[Sources]
-- Speaker's earlier AI agents for research deck, live demo 1.
-[/Sources]
+<div class="bottom-line">Agents accelerate debugging and testing, but they also generate subtle scientific bugs.</div>
 
 ---
 
 <!-- SLIDE 14 -->
-<!-- .slide: class="demo-slide" -->
 
-<p class="demo-label">Live demo 1</p>
+# Testing scientific software
 
-# A simulator that can be tested
-
-<p class="demo-copy">Change a physical parameter, inspect the generated result, then run a known limiting case that can fail.</p>
-
-<div class="loop">
-  <span>change</span><i>&rarr;</i><span>predict</span><i>&rarr;</i><span>run</span><i>&rarr;</i><span>check</span>
+<div class="quote-stage">
+  <blockquote>“If you cannot define a test, you probably do not yet understand the system.”</blockquote>
+  <div class="response-summary">
+    Unit tests · limiting cases · conservation laws · symmetry and reciprocity · analytical benchmarks · sensitivity scans
+  </div>
 </div>
 
-Note:
-Demonstrate scientific validation, not just interface fluency.
-
-[Sources]
-- Speaker's Optical Circuit Lab demonstration.
-[/Sources]
+<div class="example-tests">
+  <span>zero nonlinearity → linear propagation</span>
+  <span>zero length → identity matrix</span>
+  <span>lossless system → energy conservation</span>
+  <span>symmetric beamsplitter → equal splitting</span>
+  <span>phase wrap at 2π → field continuity</span>
+  <span>degenerate modes → orthogonal eigenfunctions</span>
+</div>
 
 ---
 
 <!-- SLIDE 15 -->
-<!-- .slide: class="section-slide section-auto" -->
+<!-- .slide: class="demo-slide" -->
 
-<div class="section-number">02</div>
+<div class="demo-label">Live demo 1</div>
 
-# Experimental automation
+# AI-assisted simulation
 
-<p>When device control becomes software, the experiment becomes reproducible and composable.</p>
+<div class="demo-copy">Optical Circuit Lab</div>
 
-Note:
-Section transition.
-
-[Sources]
-- Speaker's earlier AI agents for research deck, experimental automation section.
-[/Sources]
+<div class="loop-line">
+  <span>specify</span><i>→</i><span>implement</span><i>→</i><span>test</span><i>→</i><span>inspect</span>
+</div>
 
 ---
 
 <!-- SLIDE 16 -->
 
-<p class="eyebrow">The lab software problem</p>
+# The traditional lab software problem
 
-# Instrument APIs are necessary but not sufficient
-
-<div class="interface-row">
-  <span>Laser</span><span>Oscilloscope</span><span>SLM</span>
-  <span>Camera</span><span>Motion stage</span><span>Power meter</span>
+<div class="instrument-row">
+  <span>Laser</span><span>Oscilloscope</span><span>SLM</span><span>Camera</span><span>Stage</span><span>Power meter</span>
 </div>
 
-<div class="compare">
-  <div><h3>What exists</h3><p>Each instrument usually exposes a programmable interface.</p></div>
-  <div><h3>What is missing</h3><p>A shared data model, synchronisation, error handling, and repeatable workflows.</p></div>
+<div class="compare compact">
+  <div>
+    <h3>What researchers juggle</h3>
+    <ul>
+      <li>Different software for every instrument</li>
+      <li>Manual clicking with no scripting</li>
+      <li>Session-specific configuration</li>
+    </ul>
+  </div>
+  <div>
+    <h3>What experiments need</h3>
+    <ul>
+      <li>Synchronisation across devices</li>
+      <li>Reproducible acquisition sequences</li>
+      <li>Logging, errors, and recovery</li>
+    </ul>
+  </div>
 </div>
-
-Note:
-The core problem is integration, not a lack of vendor APIs.
-
-[Sources]
-- Speaker's earlier AI agents for research deck, slide 16.
-[/Sources]
 
 ---
 
 <!-- SLIDE 17 -->
 
-<p class="eyebrow">Agent leverage</p>
+# AI-generated lab orchestration software
 
-# Agents can turn vendor interfaces into a shared backend
-
-<div class="interface-row">
-  <span>SCPI / VISA</span><span>Serial / RS-232</span><span>Python SDK</span>
-  <span>REST API</span><span>USB HID</span><span>File protocol</span>
+<div class="two-col">
+  <div>
+    <h3>Interfaces already exist</h3>
+    <div class="tag-cloud"><span>SCPI</span><span>VISA</span><span>Serial</span><span>Python SDK</span><span>REST</span><span>USB HID</span></div>
+  </div>
+  <div>
+    <h3>Agents connect the pieces</h3>
+    <ul>
+      <li>Read vendor documentation and examples</li>
+      <li>Write device wrappers</li>
+      <li>Build a shared Python backend</li>
+      <li>Generate dashboards and experiment sequences</li>
+      <li>Add logging and error handling</li>
+    </ul>
+  </div>
 </div>
 
-<p class="statement">The repeatable work is exactly where an agent helps: <span class="accent">read examples, write wrappers, connect interfaces, add tests, and document behaviour.</span></p>
-
-<p class="bottom-line">The research-specific part remains the timing, safety, calibration, and meaning of each measurement.</p>
-
-Note:
-Vendor examples are often fragmented. Agents are effective at turning them into consistent wrappers.
-
-[Sources]
-- Speaker's earlier AI agents for research deck, slide 17.
-[/Sources]
+<div class="bottom-line">Instrument APIs are necessary; orchestration turns them into an experiment.</div>
 
 ---
 
 <!-- SLIDE 18 -->
 
-<p class="eyebrow">Reproducibility</p>
+# From orchestration to closed-loop experiments
 
-# Orchestration turns a sequence of clicks into an experiment
-
-<div class="loop large">
-  <span>configure</span><i>&rarr;</i><span>acquire</span><i>&rarr;</i><span>analyse</span><i>&rarr;</i><span>log</span>
+<div class="loop-line large-loop">
+  <span>instrument control</span><i>→</i><span>measurement</span><i>→</i><span>analysis</span><i>→</i><span>optimiser</span><i>→</i><span>updated control</span>
 </div>
 
-<div class="spec-strip">
-  <div><strong>State</strong><span>Record every device setting and software version.</span></div>
-  <div><strong>Timing</strong><span>Make synchronisation and waits explicit.</span></div>
-  <div><strong>Failure</strong><span>Recover safely from timeouts and partial runs.</span></div>
-  <div><strong>Data</strong><span>Save measurement, metadata, and analysis together.</span></div>
+<div class="four-words">
+  <strong>phase stabilisation</strong>
+  <strong>adaptive measurement</strong>
+  <strong>Bayesian optimisation</strong>
+  <strong>autonomous alignment</strong>
 </div>
 
-Note:
-The value is not merely convenience. The workflow becomes inspectable, repeatable, and reviewable.
-
-[Sources]
-- Synthesis of the speaker's automation case study.
-[/Sources]
+<div class="bottom-line">The output of analysis becomes the next experimental action.</div>
 
 ---
 
 <!-- SLIDE 19 -->
 
-<p class="eyebrow">Closed loop</p>
+# Example: SLM and camera control software
 
-# Analysis can become the next experimental action
-
-<div class="closed-loop">
-  <span>control</span><i>&rarr;</i><span>measurement</span><i>&rarr;</i><span>analysis</span><i>&rarr;</i><span>optimiser</span><i>&rarr;</i><span>updated control</span>
+<div class="full-width-figure interface-shot">
+  <img src="assets/images/slm-camera-control.webp" alt="Custom software coordinating camera acquisition and an SLM pattern">
 </div>
 
-<ul>
-  <li>Phase stabilisation and active correction</li>
-  <li>Adaptive measurement where uncertainty is highest</li>
-  <li>Bayesian optimisation of experimental parameters</li>
-  <li>Automated alignment or mode matching</li>
-</ul>
-
-<p class="bottom-line">Closing the loop changes the experiment, so guardrails and stopping conditions must be part of the specification.</p>
-
-Note:
-Do not imply full autonomy is always desirable. Emphasise explicit bounds and safe failure.
-
-[Sources]
-- Speaker's earlier AI agents for research deck, slide 18.
-[/Sources]
+<div class="bottom-line">One interface coordinates live camera inspection, SLM patterns, acquisition settings, and saved data.</div>
 
 ---
 
 <!-- SLIDE 20 -->
 
-<p class="eyebrow">Real interface</p>
+# Real example: phase masks and calibration
 
-# One interface can coordinate SLM and camera
+<div class="full-width-figure interface-shot">
+  <img src="assets/images/phase-mask-calibration.webp" alt="Measured optical field and the phase mask displayed by the SLM control software">
+</div>
 
-<figure class="full-figure">
-  <img src="assets/images/slm-camera-control.webp" alt="Custom SLM and camera control software">
-  <figcaption>Custom software for SLM-camera calibration and automated dataset acquisition</figcaption>
-</figure>
-
-<p class="bottom-line">The interface is useful because it sits on top of one programmable, testable backend.</p>
-
-Note:
-Point out the live camera view, generated SLM pattern, and acquisition controls.
-
-[Sources]
-- Speaker-created SLM-camera control software screenshot from the earlier deck.
-[/Sources]
+<div class="bottom-line">Manual alignment becomes a repeatable calibration and dataset-generation workflow.</div>
 
 ---
 
 <!-- SLIDE 21 -->
+<!-- .slide: class="demo-slide" -->
 
-<p class="eyebrow">Calibration as data</p>
+<div class="demo-label">Live demo 2</div>
 
-# Calibration becomes a repeatable data product
+# Custom SLM-camera control
 
-<figure class="full-figure">
-  <img src="assets/images/phase-mask-calibration.webp" alt="Measured optical field and generated phase mask">
-  <figcaption>Measured optical field and generated phase mask captured in the same workflow</figcaption>
-</figure>
+<div class="demo-copy">Lab orchestration and automatic dataset acquisition</div>
 
-<p class="bottom-line">Automation preserves the relationship between settings, measurements, analysis, and generated control patterns.</p>
-
-Note:
-Contrast this with manually saving screenshots or rebuilding the calibration by memory.
-
-[Sources]
-- Speaker-created phase-mask calibration screenshot from the earlier deck.
-[/Sources]
+<div class="loop-line">
+  <span>set pattern</span><i>→</i><span>acquire</span><i>→</i><span>analyse</span><i>→</i><span>save</span>
+</div>
 
 ---
 
 <!-- SLIDE 22 -->
-<!-- .slide: class="demo-slide" -->
 
-<p class="demo-label">Live demo 2</p>
+# Scientific visualisation matters
 
-# Automatic SLM-camera acquisition
-
-<p class="demo-copy">Run a short acquisition sequence and show that device state, measurement, and generated mask remain linked.</p>
-
-<div class="loop">
-  <span>set mask</span><i>&rarr;</i><span>capture</span><i>&rarr;</i><span>analyse</span><i>&rarr;</i><span>save provenance</span>
+<div class="two-col visual-intro">
+  <div>
+    <div class="statement small-statement">A scientific figure is part of the argument, not decoration added after the science.</div>
+    <ul>
+      <li>Communicate the physical mechanism</li>
+      <li>Guide the reader's intuition</li>
+      <li>Look deliberate and unambiguous</li>
+      <li>Remain reproducible from source files</li>
+    </ul>
+  </div>
+  <figure>
+    <img src="assets/images/nature-cover.webp" alt="Nature Photonics cover showing a photonic integrated circuit">
+    <figcaption>Effective visualisation combines physical structure with a clear visual hierarchy.</figcaption>
+  </figure>
 </div>
-
-Note:
-Use a short deterministic sequence. Keep the previous screenshots available if hardware is unavailable.
-
-[Sources]
-- Speaker's SLM-camera laboratory demonstration.
-[/Sources]
 
 ---
 
 <!-- SLIDE 23 -->
-<!-- .slide: class="section-slide section-viz" -->
 
-<div class="section-number">03</div>
+# The good, the bad and the ugly
 
-# Scientific visualisation
+<div class="good-bad-ugly">
+  <figure>
+    <img src="assets/images/visualisation-collage.webp" alt="Examples of polished scientific visualisation">
+    <figcaption><strong>Good:</strong> compelling visual craft</figcaption>
+  </figure>
+  <figure>
+    <img class="light-frame" src="assets/images/bad-optical-figure.webp" alt="A conventional flat optical system schematic">
+    <figcaption><strong>Bad:</strong> correct, clear, forgettable</figcaption>
+  </figure>
+  <figure>
+    <img src="assets/images/ugly-example.webp" alt="AI-generated mouse anatomy with nonsensical labels">
+    <figcaption><strong>Ugly:</strong> polished appearance, broken science</figcaption>
+  </figure>
+</div>
 
-<p>A figure should make the physical mechanism easier to reason about, not merely look impressive.</p>
-
-Note:
-Section transition into the expanded material from the Blender agents talk.
-
-[Sources]
-- Speaker's Coding agents and Blender MCP for scientific figures talk.
-[/Sources]
+<div class="bottom-line">We need both: scientific judgement and visual craft.</div>
 
 ---
 
 <!-- SLIDE 24 -->
+<!-- .slide: class="hinge-slide" -->
 
-<p class="eyebrow">Why it matters</p>
+# Three reasons Blender changes the calculation
 
-# Scientific visualisation is part of the reasoning
-
-<div class="two-col wide-left">
-  <div>
-    <p class="statement">A strong figure communicates <span class="accent">mechanism, scale, relationships, and uncertainty</span> before the reader reaches the caption.</p>
-    <ul>
-      <li>Scientifically exact</li>
-      <li>Visually deliberate</li>
-      <li>Unambiguous</li>
-      <li>Revisable from source</li>
-    </ul>
-  </div>
-  <figure class="full-figure">
-    <img src="assets/images/nature-cover.webp" alt="Nature Photonics cover showing an integrated photonics illustration">
-    <figcaption>High-impact scientific illustration combines explanation and visual hierarchy</figcaption>
-  </figure>
+<div class="triptych">
+  <div><span>01</span><strong>Blender is free</strong><small>Open-source, with no licence barrier.</small></div>
+  <div><span>02</span><strong>Blender is scriptable</strong><small>A scene can be generated and revised through code.</small></div>
+  <div><span>03</span><strong>Blender has MCP</strong><small>An agent can interact directly with the application.</small></div>
 </div>
 
-Note:
-Separate aesthetic polish from scientific accuracy; the best figures need both.
-
-[Sources]
-- Nature Photonics cover reproduced in the speaker's earlier deck for educational discussion.
-- Speaker's Blender agents talk, slides 3-6.
-[/Sources]
+<div class="bottom-line">You do not need to become a professional 3D artist, but you must learn enough to inspect the result.</div>
 
 ---
 
 <!-- SLIDE 25 -->
 
-<p class="eyebrow">The skills bottleneck</p>
+# Coding agent + Blender MCP
 
-# Blender solves the rendering problem, but introduces another profession
-
-<div class="figure-pair compact">
-  <figure>
-    <img src="assets/images/blender-ui.webp" alt="Blender scientific visualisation interface">
-    <figcaption>Powerful geometry, materials, lighting, and rendering</figcaption>
-  </figure>
-  <figure>
-    <img class="light-frame" src="assets/images/ugly-example.webp" alt="Scientifically motivated but visually awkward example figure">
-    <figcaption>Scientific content alone does not guarantee visual clarity</figcaption>
-  </figure>
+<div class="loop-line large-loop">
+  <span>physical brief</span><i>→</i><span>coding agent</span><i>→</i><span>Blender MCP</span><i>→</i><span>scene and render</span><i>→</i><span>inspection</span>
 </div>
 
-<p class="bottom-line">Researchers need a way to express scientific intent without becoming full-time 3D artists.</p>
-
-Note:
-Blender is not difficult because it is badly designed; it is difficult because 3D design is a real discipline.
-
-[Sources]
-- Blender interface and published-example images embedded in the speaker's earlier decks.
-[/Sources]
+<div class="two-col mcp-layout">
+  <div>
+    <p><strong>Model Context Protocol</strong> connects an AI application to external tools.</p>
+    <p class="muted">For Blender, those tools expose objects, materials, lights, cameras, scripts, scene inspection, and rendering.</p>
+  </div>
+  <div class="mcp-metaphor">
+    <small>In practical terms</small>
+    <strong>language<br>becomes<br>tool calls</strong>
+  </div>
+</div>
 
 ---
 
 <!-- SLIDE 26 -->
 
-<p class="eyebrow">Agent + tool</p>
+# Brief it like a 3D artist and a physicist
 
-# MCP gives the agent handles on the 3D scene
-
-<div class="two-col mcp-layout">
+<div class="spec-figure-layout">
   <div>
-    <div class="loop">
-      <span>text specification</span><i>&rarr;</i><span>agent</span><i>&rarr;</i><span>Blender API</span><i>&rarr;</i><span>render</span>
-    </div>
-    <ul>
-      <li>Geometry and object hierarchy</li>
-      <li>Materials, lighting, and camera</li>
-      <li>Data-driven meshes and textures</li>
-      <li>Saved scenes, renders, and revisions</li>
+    <ul class="instruction-list">
+      <li><strong>Scientific story and source data</strong><span>What mechanism must the reader understand?</span></li>
+      <li><strong>Physical constraints</strong><span>What geometry, convention, or implication must remain true?</span></li>
+      <li><strong>Visual hierarchy</strong><span>What is the hero, and in what order should the scene be read?</span></li>
+      <li><strong>Failure conditions</strong><span>What must the figure never imply?</span></li>
+      <li><strong>Style and deliverables</strong><span>References, camera, aspect ratio, labels, and export format.</span></li>
     </ul>
   </div>
-  <div class="mcp-metaphor">
-    <small>Model Context Protocol</small>
-    <strong>not more intelligence,<br>more useful access</strong>
-  </div>
+  <figure class="prompting-figure">
+    <img src="assets/images/precise-prompting.webp" alt="Drawing contrasting a vague instruction with a precise instruction">
+  </figure>
 </div>
 
-<p class="bottom-line">The agent can operate Blender's scriptable scene graph and inspect the result through rendered images.</p>
-
-Note:
-Explain MCP as a standard route to tools and context, not as magic.
-
-[Sources]
-- Speaker's Blender agents talk, slides 10-13.
-[/Sources]
+<div class="bottom-line">Ask the model to describe the scene and ask clarifying questions before it writes the specification.</div>
 
 ---
 
 <!-- SLIDE 27 -->
 
-<p class="eyebrow">The brief</p>
+# From flat reference to one coherent scene
 
-# Brief the agent like a 3D artist and a physicist
-
-<div class="two-col wide-right">
-  <div>
-    <ol class="instruction-list">
-      <li>Describe what the scene must explain.</li>
-      <li>Specify geometry, scale, and coordinate conventions.</li>
-      <li>State what must be driven by real data.</li>
-      <li>Define camera, lighting, and visual hierarchy.</li>
-      <li>Ask for questions before implementation.</li>
-    </ol>
-  </div>
-  <figure class="full-figure">
-    <img src="assets/images/precise-prompting.webp" alt="Example of a precise scientific visualisation prompt">
-    <figcaption>A useful specification is concrete enough to fail</figcaption>
+<div class="before-after">
+  <figure>
+    <img class="light-frame" src="assets/images/reference-figure.webp" alt="Original flat scientific figure for a micro-ring reservoir system">
+    <figcaption>Reference: accurate stages, weak spatial coherence</figcaption>
+  </figure>
+  <i>→</i>
+  <figure>
+    <img src="assets/images/data-driven-figure.webp" alt="Blender render of the micro-ring reservoir and optical readout">
+    <figcaption>Blender: one physical scene with an explicit reading order</figcaption>
   </figure>
 </div>
 
-Note:
-The brief should encode both the physical scene and the communication job of the figure.
-
-[Sources]
-- Speaker's Blender agents talk, slides 14-19.
-[/Sources]
+<div class="bottom-line">Resolve the interpretation first: preserve the science, then choose the visual hero.</div>
 
 ---
 
 <!-- SLIDE 28 -->
 
-<p class="eyebrow">The visual loop</p>
+# Let the agent work the visual loop
 
-# The useful loop is inspect, specify, render, critique
-
-<div class="figure-pair compact">
-  <figure>
-    <img class="light-frame" src="assets/images/reference-figure.webp" alt="Reference scientific figure">
-    <figcaption>Start by identifying the physical relationships in the reference</figcaption>
-  </figure>
-  <figure>
-    <img src="assets/images/codex-blender-agent.webp" alt="Coding agent working with Blender">
-    <figcaption>The agent edits the scene and returns a render for review</figcaption>
+<div class="two-col demo-layout">
+  <div>
+    <ol>
+      <li>Give it the specification and references.</li>
+      <li>Let it build through Blender MCP.</li>
+      <li>Request preview renders and scene inspection.</li>
+      <li>Correct one physical or visual issue at a time.</li>
+    </ol>
+    <div class="prompt-card">
+      <small>Useful feedback</small>
+      <p>“The attenuators must visibly reduce each outgoing beam's intensity.”</p>
+    </div>
+  </div>
+  <figure class="agent-screenshot">
+    <img src="assets/images/codex-blender-agent.webp" alt="Coding agent updating attenuation logic in a Blender scene">
+    <figcaption>A visual correction becomes a concrete scene and code change.</figcaption>
   </figure>
 </div>
-
-<div class="loop">
-  <span>inspect</span><i>&rarr;</i><span>specify</span><i>&rarr;</i><span>render</span><i>&rarr;</i><span>critique</span>
-</div>
-
-Note:
-Feedback should sound like an art director and a physicist: identify the visual defect and why it changes interpretation.
-
-[Sources]
-- Speaker's source figure and Codex-Blender workflow screenshot.
-[/Sources]
 
 ---
 
 <!-- SLIDE 29 -->
 
-<p class="eyebrow">Combined reasoning</p>
+# Feedback should sound like an art director and a physicist
 
-# The agent can work on physics and graphics together
-
-<div class="two-col wide-left">
-  <div>
-    <p class="statement">One instruction can connect a physical correction to a graphical change.</p>
-    <div class="prompt-card">
-      <p>"The field should expand after the phase element. Move the waist, reverse the propagation cue, and keep the detector plane fixed."</p>
-    </div>
-    <p>The researcher still checks whether the corrected scene expresses the intended physics.</p>
-  </div>
-  <figure class="full-figure">
-    <img src="assets/images/blender-scene.webp" alt="Rendered optical system scene in Blender">
-    <figcaption>One coherent, revisable 3D scene</figcaption>
-  </figure>
+<div class="feedback-list">
+  <p>“The spectrum looks continuous. Make the channels discrete.”</p>
+  <p>“The detector is too large. Restore the micro-ring as the hero.”</p>
+  <p>“Remove the external loop. Memory must be intracavity.”</p>
+  <p>“Make weighting visible through beam intensity.”</p>
 </div>
 
-Note:
-This is the distinctive benefit of a coding agent controlling a scriptable graphics environment.
+<div class="four-words feedback-meanings">
+  <strong>domain meaning</strong>
+  <strong>visual diagnosis</strong>
+  <strong>failure criterion</strong>
+  <strong>next action</strong>
+</div>
 
-[Sources]
-- Speaker-created Blender scene from the earlier AI agents for research deck.
-[/Sources]
+<div class="bottom-line accent-line">Be specific: vague input produces vague geometry.</div>
 
 ---
 
 <!-- SLIDE 30 -->
 
-<p class="eyebrow">Data-driven figures</p>
+# Replace decoration with real data
 
-# Replace decorative geometry with real data
-
-<div class="figure-pair compact">
-  <figure>
-    <img class="light-frame" src="assets/images/bad-optical-figure.webp" alt="Conventional optical system schematic">
-    <figcaption>A schematic can explain topology without showing the measured field</figcaption>
-  </figure>
-  <figure>
-    <img src="assets/images/data-driven-figure.webp" alt="Blender figure incorporating measured optical data">
-    <figcaption>Measured or simulated arrays can drive geometry, texture, colour, and labels</figcaption>
+<div class="data-example-layout">
+  <div>
+    <p>Give the agent:</p>
+    <ul>
+      <li>measured spectra</li>
+      <li>simulated field profiles</li>
+      <li>device dimensions</li>
+      <li>intensity traces</li>
+      <li>exact export constraints</li>
+    </ul>
+    <p class="muted">The scene can carry scientific information, not just scientific aesthetics.</p>
+  </div>
+  <figure class="real-data-figure">
+    <img src="assets/images/blender-scene.webp" alt="Blender illustration with field distributions embedded along an optical path">
+    <figcaption>Field data embedded directly in the rendered optical path</figcaption>
   </figure>
 </div>
-
-<p class="bottom-line">The figure becomes reproducible when the scene, data, and script are versioned together.</p>
-
-Note:
-Give examples: intensity maps as textures, trajectories as curves, uncertainty as geometry, and arrays as object placement.
-
-[Sources]
-- Speaker's Blender agents talk, data-driven visualisation example.
-- Reference optical figure retained in `references/source_paper_PRR_2025.pdf`.
-[/Sources]
 
 ---
 
 <!-- SLIDE 31 -->
 
-<p class="eyebrow">Shared risk</p>
+# Practical advice for researchers
 
-# Plausible wrongness is the failure mode in all three domains
-
-<div class="risk-grid">
-  <div>
-    <h3>Risks</h3>
-    <ul>
-      <li>Incorrect equations that produce smooth plots</li>
-      <li>Unsafe device sequences that appear to run</li>
-      <li>Convincing geometry that encodes wrong physics</li>
-      <li>Weak provenance after rapid iteration</li>
-    </ul>
-  </div>
-  <div>
-    <h3>Mitigation</h3>
-    <ul>
-      <li>Write specifications before production work</li>
-      <li>Define tests that can fail</li>
-      <li>Compare against known limits and measurements</li>
-      <li>Version the spec, code, data, and outputs together</li>
-    </ul>
-  </div>
+<div class="checklist">
+  <div><span>1</span><strong>Learn basic Python, Git, and enough Blender to inspect results.</strong></div>
+  <div><span>2</span><strong>Start with one small, well-defined tool or scene.</strong></div>
+  <div><span>3</span><strong>Write the specification before implementation.</strong></div>
+  <div><span>4</span><strong>Always ask for tests and explicit failure conditions.</strong></div>
+  <div><span>5</span><strong>Validate every output against physics and known limits.</strong></div>
+  <div><span>6</span><strong>Keep specifications, code, scenes, and results under version control.</strong></div>
 </div>
-
-Note:
-Connect the same validation mindset across simulation, automation, and visualisation.
-
-[Sources]
-- Speaker's earlier AI agents for research deck, slide 27.
-[/Sources]
 
 ---
 
 <!-- SLIDE 32 -->
 
-<p class="eyebrow">How to start</p>
+# Limits and pitfalls
 
-# Begin with one small workflow you can verify
-
-<div class="workflow-list">
-  <div><span>01</span><div><strong>Choose a bounded task</strong><small>One model, one instrument, or one figure.</small></div></div>
-  <div><span>02</span><div><strong>Write the scientific contract</strong><small>Assumptions, inputs, outputs, conventions, and failure conditions.</small></div></div>
-  <div><span>03</span><div><strong>Ask the agent to propose a plan</strong><small>Resolve questions before implementation.</small></div></div>
-  <div><span>04</span><div><strong>Make validation executable</strong><small>Tests, benchmark data, safe states, or visual comparisons.</small></div></div>
-  <div><span>05</span><div><strong>Keep reproducible records</strong><small>Version the specification, code, data, scene, and decisions.</small></div></div>
+<div class="compare">
+  <div>
+    <h3>Risks</h3>
+    <ul>
+      <li>Plausible but incorrect code</li>
+      <li>Hidden physical assumptions</li>
+      <li>Convincing but wrong geometry</li>
+      <li>Weak reproducibility</li>
+      <li>Over-trust in demo outputs</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Mitigation</h3>
+    <ul>
+      <li>Write specifications before building</li>
+      <li>Define tests that can fail</li>
+      <li>Validate against analytical limits</li>
+      <li>Commit everything to version control</li>
+      <li>Treat agent output as a first draft</li>
+    </ul>
+  </div>
 </div>
 
-Note:
-This is the audience's practical takeaway. It should feel achievable on the next working day.
-
-[Sources]
-- Speaker's earlier AI agents for research deck, slide 26.
-- Speaker's Blender agents talk, final practical guidance.
-[/Sources]
+<div class="bottom-line">Plausible wrongness is more dangerous than obvious failure.</div>
 
 ---
 
 <!-- SLIDE 33 -->
-<!-- .slide: class="closing-slide" -->
-
-<p class="eyebrow">Takeaway</p>
+<!-- .slide: class="closing-slide" data-background-gradient="radial-gradient(circle at 25% 80%, rgba(255,132,93,.18), transparent 34%), radial-gradient(circle at 78% 22%, rgba(74,211,255,.18), transparent 34%), #030712" -->
 
 # AI does not remove the need for expertise. It raises its value.
 
-<p class="takeaway">Agents amplify the researcher's ability to build systems, run loops, and explore alternatives. Domain knowledge determines what to specify, what to test, and when not to trust the result.</p>
-
-<p class="action">Specify clearly. Automate deliberately. Validate scientifically.</p>
-
-<p class="link">egor-manu.github.io/ai-agents-for-research-talk/</p>
+<div class="closing-grid">
+  <div>
+    <div class="closing-copy">Agents amplify whatever skill level the researcher brings.</div>
+    <div class="closing-action">Specify precisely. Delegate implementation. Validate scientifically.</div>
+  </div>
+  <div class="closing-words">
+    <strong>domain expertise</strong>
+    <strong>specification thinking</strong>
+    <strong>validation mindset</strong>
+    <strong>software architecture</strong>
+    <strong>AI collaboration</strong>
+  </div>
+</div>
 
 Note:
-Resolve the opening: agents reduce software friction, while scientific expertise remains the authority.
-
-[Sources]
-- Synthesis of the speaker's two earlier talks.
-[/Sources]
-
+Close on responsibility: agents expand the feasible scope of research software and visualisation, but scientific authority remains human.

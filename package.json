@@ -4,7 +4,7 @@
   "private": true,
   "description": "Reveal.js talk on AI agents for simulations, experimental automation, and scientific visualisation",
   "scripts": {
-    "serve": "python -m http.server 8000",
+    "serve": "python3 -m http.server 8000",
     "validate": "node scripts/validate.mjs",
     "build": "node scripts/build.mjs"
   }
