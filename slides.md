@@ -669,10 +669,9 @@ Introduce the three research workflows and the common human-agent operating mode
 # (Domain) expertise is now even more valuable than before
 
 <div class="closing-grid">
-  <div>
+  <div class="closing-message">
     <div class="closing-copy">Agents amplify whatever skill level the researcher brings.</div>
     <div class="closing-action">Specify precisely. Delegate implementation. Validate scientifically.</div>
-    <div class="closing-copy"> </div>
     <div class="closing-copy">As always: garbage in → garbage out.</div>
   </div>
   <div class="closing-qr">

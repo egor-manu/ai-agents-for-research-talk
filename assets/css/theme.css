@@ -511,21 +511,37 @@ figcaption {
 }
 .checklist span { color: var(--accent); font-weight: 800; }
 
-.closing-slide h1 { margin-top: .65em !important; max-width: 1450px; }
+.closing-slide h1 {
+  font-size: 1.2em;
+  letter-spacing: -.055em;
+  margin: 0 0 .55em !important;
+  max-width: none;
+  white-space: nowrap;
+}
 .closing-grid {
   align-items: center;
   display: grid;
   gap: 1em;
   grid-template-columns: 1.08fr .92fr;
-  margin-top: 1em;
+  margin-top: 0;
 }
-.closing-copy { color: var(--text-soft); font-size: .78em; line-height: 1.42; }
+.closing-message {
+  display: flex;
+  flex-direction: column;
+  gap: .55em;
+}
+.closing-copy {
+  color: var(--text-soft);
+  font-size: .78em;
+  line-height: 1.25;
+}
 .closing-action {
   color: var(--accent);
-  font-size: .9em;
+  font-size: .82em;
   font-weight: 750;
   letter-spacing: -.025em;
-  margin-top: 1em;
+  line-height: 1.2;
+  margin: 0;
 }
 .closing-qr {
   align-items: center;
