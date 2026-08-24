@@ -18,9 +18,8 @@ npm run serve
 
 Then open `http://localhost:8000/`.
 
-The web deck is maintained in `slides.md`. The earlier PowerPoint and PDF are retained under `references/` as source material, but they are not copied into the GitHub Pages build.
+The web deck is maintained in `slides.md`. Private source PDFs and PowerPoint files can be kept locally under the ignored `references/` directory; they are not versioned or copied into the GitHub Pages build.
 
 ## Rights notice
 
 Original presentation content and speaker-created images belong to their respective creator. Third-party works remain the property of their original rights holders and are shown solely for reference and educational discussion.
-

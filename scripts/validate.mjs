@@ -40,13 +40,6 @@ for (const ref of new Set(assetRefs)) {
   }
 }
 
-for (const source of [
-  "references/AI_agents_for_research_final.pdf",
-  "references/AI_agents_for_research_final.pptx"
-]) {
-  if (!existsSync(resolve(root, source))) errors.push(`Missing source deck: ${source}`);
-}
-
 if (!slides.includes("# AI agents for research")) errors.push("Talk title is missing");
 if (!slides.includes("## Simulations, experimental automation, and visualisation")) errors.push("Talk subtitle is missing");
 const presentationUrl = "https://egor-manu.github.io/ai-agents-for-research-talk/";

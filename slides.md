@@ -17,7 +17,7 @@ Note:
 Introduce the three research workflows and the common human-agent operating model.
 
 [Sources]
-- Content adapted from the speaker's earlier AI agents for research presentation in `references/`.
+- Content adapted from the speaker's private earlier AI agents for research presentation.
 - Blender section adapted from the speaker's published Coding agents + Blender MCP talk.
 [/Sources]
 
@@ -666,7 +666,7 @@ Introduce the three research workflows and the common human-agent operating mode
 <!-- SLIDE 33 -->
 <!-- .slide: class="closing-slide" data-background-gradient="radial-gradient(circle at 25% 80%, rgba(189,164,255,.18), transparent 34%), radial-gradient(circle at 78% 22%, rgba(214,227,106,.16), transparent 34%), #151216" -->
 
-# Expertise is now even more valuable than before
+# (Domain) expertise is now even more valuable than before
 
 <div class="closing-grid">
   <div>
