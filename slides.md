@@ -1,15 +1,17 @@
 <!-- SLIDE 01 -->
-<!-- .slide: class="title-slide" data-background-gradient="radial-gradient(circle at 78% 30%, rgba(74,211,255,.16), transparent 32%), linear-gradient(120deg, #030712 0%, #071426 58%, #120b19 100%)" -->
+<!-- .slide: class="title-slide" data-background-gradient="radial-gradient(circle at 78% 30%, rgba(214,227,106,.16), transparent 32%), linear-gradient(120deg, #151216 0%, #211a23 58%, #2b1d2f 100%)" -->
 
-# AI agents for research:
+# AI agents for research
 
-## simulations, experimental automation, and visualisation
+## Simulations, experimental automation, and visualisation
+
+### What was unimaginable half a year ago is now simply a must
 
 <p>Egor Manuylovich<br>
 Aston Institute of Photonic Technologies<br>
 Aston University</p>
 
-<small class="muted">What was unimaginable half a year ago is now simply a must.</small>
+
 
 Note:
 Introduce the three research workflows and the common human-agent operating model.
@@ -28,8 +30,8 @@ Introduce the three research workflows and the common human-agent operating mode
 <div class="talk-grid">
   <div><span>01</span><strong>Coding agents</strong><small>What changes when software can act in its own loop</small></div>
   <div><span>02</span><strong>Scientific simulations</strong><small>From fast prompting to specifications and tests</small></div>
-  <div><span>03</span><strong>Experimental automation</strong><small>From vendor APIs to reproducible experiments</small></div>
-  <div><span>04</span><strong>Scientific visualisation</strong><small>From a physical brief to a Blender scene</small></div>
+  <div><span>03</span><strong>Experimental automation</strong><small>Building software to help you automate experiments</small></div>
+  <div><span>04</span><strong>Scientific visualisation</strong><small>Blender MCP and API for figures</small></div>
 </div>
 
 ---
@@ -52,30 +54,29 @@ Introduce the three research workflows and the common human-agent operating mode
 
 # AI-assisted simulations: what changes?
 
-<div class="compare">
+<div class="compare compare-large">
   <div>
     <h3>Before</h3>
     <ul>
-      <li>Slow, manual simulation setup</li>
+      <li>Slow, manual coding for simulations</li>
       <li>Fragmented scripts per use-case</li>
       <li>Manual plotting and formatting</li>
-      <li>Limited parameter-space exploration</li>
-      <li>Documentation as an afterthought</li>
+      <li>Documentation: too boring to write</li>
     </ul>
   </div>
   <div>
     <h3>With agents</h3>
     <ul>
+      <li>Modular, reusable components</li>
       <li>Parameter sweeps generated quickly</li>
       <li>Plotting pipelines automated end-to-end</li>
       <li>Tests and documentation added early</li>
       <li>Faster hypothesis iteration</li>
-      <li>Modular, reusable components</li>
     </ul>
   </div>
 </div>
 
-<div class="bottom-line">The biggest gain is not typing faster. It is making previously uneconomic research software practical.</div>
+<div class="bottom-line">The biggest gain is making previously "too-hard-to-be-feasible" software practical.</div>
 
 ---
 
@@ -103,15 +104,15 @@ Introduce the three research workflows and the common human-agent operating mode
 <div class="image-pair simulation-examples">
   <figure>
     <img class="light-frame" src="assets/images/simulation-system.webp" alt="Photonic system represented as a sequence of trainable optical elements">
-    <figcaption>Photonic elements mapped to reusable computational layers</figcaption>
+    <figcaption>Map photonic elements pytorch layers, optimise!</figcaption>
   </figure>
   <figure>
     <img class="light-frame" src="assets/images/simulation-model.webp" alt="Structure of a mode-coupling matrix for a three-mode fibre">
-    <figcaption>Mode decomposition with explicit orthogonality structure</figcaption>
+    <figcaption>Writing plotting script for this manually would be a nightmare!</figcaption>
   </figure>
 </div>
 
-<div class="bottom-line">The agent can build the machinery; the researcher must define what the machinery means.</div>
+<div class="bottom-line">The agent can translate your words in the actual code. You must define the physics and meaning.</div>
 
 ---
 
@@ -142,7 +143,7 @@ Introduce the three research workflows and the common human-agent operating mode
   </div>
 </div>
 
-<div class="bottom-line">Useful when failure is cheap; unsafe as the final method for research software.</div>
+<div class="bottom-line">Useful for short scripts; unpractical for more complex research software.</div>
 
 ---
 
@@ -279,7 +280,7 @@ Introduce the three research workflows and the common human-agent operating mode
 <div class="quote-stage">
   <blockquote>“If you cannot define a test, you probably do not yet understand the system.”</blockquote>
   <div class="response-summary">
-    Unit tests · limiting cases · conservation laws · symmetry and reciprocity · analytical benchmarks · sensitivity scans
+    conservation laws · symmetry and reciprocity · analytical benchmarks ----- Testing now is even more important!
   </div>
 </div>
 
@@ -663,23 +664,25 @@ Introduce the three research workflows and the common human-agent operating mode
 ---
 
 <!-- SLIDE 33 -->
-<!-- .slide: class="closing-slide" data-background-gradient="radial-gradient(circle at 25% 80%, rgba(255,132,93,.18), transparent 34%), radial-gradient(circle at 78% 22%, rgba(74,211,255,.18), transparent 34%), #030712" -->
+<!-- .slide: class="closing-slide" data-background-gradient="radial-gradient(circle at 25% 80%, rgba(189,164,255,.18), transparent 34%), radial-gradient(circle at 78% 22%, rgba(214,227,106,.16), transparent 34%), #151216" -->
 
-# AI does not remove the need for expertise. It raises its value.
+# Expertise is now even more valuable than before
 
 <div class="closing-grid">
   <div>
     <div class="closing-copy">Agents amplify whatever skill level the researcher brings.</div>
     <div class="closing-action">Specify precisely. Delegate implementation. Validate scientifically.</div>
+    <div class="closing-copy"> </div>
+    <div class="closing-copy">As always: garbage in → garbage out.</div>
   </div>
-  <div class="closing-words">
-    <strong>domain expertise</strong>
-    <strong>specification thinking</strong>
-    <strong>validation mindset</strong>
-    <strong>software architecture</strong>
-    <strong>AI collaboration</strong>
+  <div class="closing-qr">
+    <a href="https://egor-manu.github.io/ai-agents-for-research-talk/" target="_blank" rel="noopener" aria-label="Open the AI agents for research presentation">
+      <img src="assets/images/presentation-qr.png" alt="QR code linking to the AI agents for research presentation">
+    </a>
+    <strong>Scan for the full presentation</strong>
+    <span>egor-manu.github.io/<wbr>ai-agents-for-research-talk</span>
   </div>
 </div>
 
 Note:
-Close on responsibility: agents expand the feasible scope of research software and visualisation, but scientific authority remains human.
+Close on responsibility: agents expand the feasible scope of research software and visualisation, but scientific authority remains human. Keep this slide visible while the audience scans the QR code.

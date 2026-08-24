@@ -47,8 +47,10 @@ for (const source of [
   if (!existsSync(resolve(root, source))) errors.push(`Missing source deck: ${source}`);
 }
 
-if (!slides.includes("AI agents for research:")) errors.push("Talk title is missing");
-if (!slides.includes("simulations, experimental automation, and visualisation")) errors.push("Talk subtitle is missing");
+if (!slides.includes("# AI agents for research")) errors.push("Talk title is missing");
+if (!slides.includes("## Simulations, experimental automation, and visualisation")) errors.push("Talk subtitle is missing");
+const presentationUrl = "https://egor-manu.github.io/ai-agents-for-research-talk/";
+if (!slides.includes(`href="${presentationUrl}"`)) errors.push("Closing-slide presentation link is missing");
 if (!slides.includes("[Sources]")) errors.push("Speaker-note source blocks are missing");
 if (/\bTODO\b|\bTBD\b|placeholder/i.test(slides)) errors.push("Draft placeholder text remains in slides.md");
 
@@ -58,4 +60,3 @@ if (errors.length) {
 }
 
 console.log(`Validated ${slideCount} slides and ${new Set(assetRefs).size} local asset references.`);
-
