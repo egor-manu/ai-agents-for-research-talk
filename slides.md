@@ -24,6 +24,40 @@ Introduce the three research workflows and the common human-agent operating mode
 ---
 
 <!-- SLIDE 02 -->
+<!-- .slide: class="poster-slide" -->
+
+<div class="poster-kicker">Visit our group poster</div>
+
+# Small-scale photonic Kolmogorov-Arnold networks
+
+<div class="poster-layout">
+  <div class="poster-copy">
+    <p class="poster-paper-title">Using standard telecom nonlinear modules</p>
+    <p class="poster-authors">Luca Nogueira Calçado · Sergei K. Turitsyn · Egor Manuylovich</p>
+    <div class="poster-results">
+      <div><strong>94.3%</strong><span>nonlinear classification accuracy</span></div>
+      <div><strong>0.986</strong><span>R² on six-input regression</span></div>
+      <div><strong>4 to 7</strong><span>standard telecom modules</span></div>
+    </div>
+    <a class="poster-link" href="https://www.nature.com/articles/s41467-026-75602-8">Nature Communications 17, 8938 (2026)</a>
+    <p class="poster-cta">Come and ask us how trainable optical nonlinearities become network edges.</p>
+  </div>
+  <figure class="poster-figure">
+    <img class="light-frame" src="assets/images/ssp-kan-poster.png" alt="SSP-KAN architecture using four trainable MZI, VOA, and SOA modules">
+    <figcaption>Four physically trainable parameters per optical edge.</figcaption>
+  </figure>
+</div>
+
+Note:
+Invite the audience to visit the group poster and briefly introduce the compact photonic KAN architecture and its experimental results.
+
+[Sources]
+- https://www.nature.com/articles/s41467-026-75602-8
+[/Sources]
+
+---
+
+<!-- SLIDE 03 -->
 
 # What this talk is about
 
@@ -36,7 +70,7 @@ Introduce the three research workflows and the common human-agent operating mode
 
 ---
 
-<!-- SLIDE 03 -->
+<!-- SLIDE 04 -->
 
 # What are AI coding agents?
 
@@ -50,7 +84,7 @@ Introduce the three research workflows and the common human-agent operating mode
 
 ---
 
-<!-- SLIDE 04 -->
+<!-- SLIDE 05 -->
 
 # AI-assisted simulations: what changes?
 
@@ -80,7 +114,7 @@ Introduce the three research workflows and the common human-agent operating mode
 
 ---
 
-<!-- SLIDE 05 -->
+<!-- SLIDE 06 -->
 
 # The research bottleneck is shifting
 
@@ -97,7 +131,7 @@ Introduce the three research workflows and the common human-agent operating mode
 
 ---
 
-<!-- SLIDE 06 -->
+<!-- SLIDE 07 -->
 
 # Examples from simulation work
 
@@ -116,7 +150,7 @@ Introduce the three research workflows and the common human-agent operating mode
 
 ---
 
-<!-- SLIDE 07 -->
+<!-- SLIDE 08 -->
 
 # Vibe coding
 
@@ -147,7 +181,7 @@ Introduce the three research workflows and the common human-agent operating mode
 
 ---
 
-<!-- SLIDE 08 -->
+<!-- SLIDE 09 -->
 
 # Where agents are good and where not
 
@@ -178,7 +212,7 @@ Introduce the three research workflows and the common human-agent operating mode
 
 ---
 
-<!-- SLIDE 09 -->
+<!-- SLIDE 10 -->
 
 # Vibe coding → spec-driven development
 
@@ -195,7 +229,7 @@ Introduce the three research workflows and the common human-agent operating mode
 
 ---
 
-<!-- SLIDE 10 -->
+<!-- SLIDE 11 -->
 
 # Why specifications and tests matter in science
 
@@ -212,7 +246,7 @@ Introduce the three research workflows and the common human-agent operating mode
 
 ---
 
-<!-- SLIDE 11 -->
+<!-- SLIDE 12 -->
 
 # Human-agent research loop
 
@@ -241,39 +275,7 @@ Introduce the three research workflows and the common human-agent operating mode
 
 ---
 
-<!-- SLIDE 12 -->
-
-# Example simulation workflow
-
-<div class="workflow-row">
-  <div><span>1</span><strong>Physics specification</strong><small>Equations · assumptions · conventions · edge cases</small></div>
-  <i>→</i>
-  <div><span>2</span><strong>Implementation and tests</strong><small>Modules · unit tests · conservation checks · analytical limits</small></div>
-  <i>→</i>
-  <div><span>3</span><strong>Plots and interpretation</strong><small>Sweeps · transfer functions · human review · revised specification</small></div>
-</div>
-
-<div class="bottom-line">Separate building from believing.</div>
-
----
-
 <!-- SLIDE 13 -->
-
-# Debugging with agents
-
-<div class="failure-list">
-  <p><strong>Wrong beamsplitter convention</strong><span>Reflection and transmission phases differ by π.</span></p>
-  <p><strong>Arm-length sum versus difference</strong><span>The phase depends on the difference, not the sum.</span></p>
-  <p><strong>Propagation sign error</strong><span>The sign in e<sup>ikz</sup> changes convergence into divergence.</span></p>
-  <p><strong>Numerical instability</strong><span>Plots can hide it until a limiting-case test fails.</span></p>
-  <p><strong>Unit mismatch</strong><span>Intermediate variables silently mix incompatible scales.</span></p>
-</div>
-
-<div class="bottom-line">Agents accelerate debugging and testing, but they also generate subtle scientific bugs.</div>
-
----
-
-<!-- SLIDE 14 -->
 
 # Testing scientific software
 
@@ -295,7 +297,7 @@ Introduce the three research workflows and the common human-agent operating mode
 
 ---
 
-<!-- SLIDE 15 -->
+<!-- SLIDE 14 -->
 <!-- .slide: class="demo-slide" -->
 
 <div class="demo-label">Live demo 1</div>
@@ -310,7 +312,7 @@ Introduce the three research workflows and the common human-agent operating mode
 
 ---
 
-<!-- SLIDE 16 -->
+<!-- SLIDE 15 -->
 
 # The traditional lab software problem
 
@@ -339,7 +341,7 @@ Introduce the three research workflows and the common human-agent operating mode
 
 ---
 
-<!-- SLIDE 17 -->
+<!-- SLIDE 16 -->
 
 # AI-generated lab orchestration software
 
@@ -364,7 +366,7 @@ Introduce the three research workflows and the common human-agent operating mode
 
 ---
 
-<!-- SLIDE 18 -->
+<!-- SLIDE 17 -->
 
 # From orchestration to closed-loop experiments
 
@@ -383,7 +385,7 @@ Introduce the three research workflows and the common human-agent operating mode
 
 ---
 
-<!-- SLIDE 19 -->
+<!-- SLIDE 18 -->
 
 # Example: SLM and camera control software
 
@@ -395,7 +397,7 @@ Introduce the three research workflows and the common human-agent operating mode
 
 ---
 
-<!-- SLIDE 20 -->
+<!-- SLIDE 19 -->
 
 # Real example: phase masks and calibration
 
@@ -407,7 +409,7 @@ Introduce the three research workflows and the common human-agent operating mode
 
 ---
 
-<!-- SLIDE 21 -->
+<!-- SLIDE 20 -->
 <!-- .slide: class="demo-slide" -->
 
 <div class="demo-label">Live demo 2</div>
@@ -422,7 +424,7 @@ Introduce the three research workflows and the common human-agent operating mode
 
 ---
 
-<!-- SLIDE 22 -->
+<!-- SLIDE 21 -->
 
 # Scientific visualisation matters
 
@@ -444,7 +446,7 @@ Introduce the three research workflows and the common human-agent operating mode
 
 ---
 
-<!-- SLIDE 23 -->
+<!-- SLIDE 22 -->
 
 # The good, the bad and the ugly
 
@@ -467,7 +469,7 @@ Introduce the three research workflows and the common human-agent operating mode
 
 ---
 
-<!-- SLIDE 24 -->
+<!-- SLIDE 23 -->
 <!-- .slide: class="hinge-slide" -->
 
 # Three reasons Blender changes the calculation
@@ -482,7 +484,7 @@ Introduce the three research workflows and the common human-agent operating mode
 
 ---
 
-<!-- SLIDE 25 -->
+<!-- SLIDE 24 -->
 
 # Coding agent + Blender MCP
 
@@ -503,7 +505,7 @@ Introduce the three research workflows and the common human-agent operating mode
 
 ---
 
-<!-- SLIDE 26 -->
+<!-- SLIDE 25 -->
 
 # Brief it like a 3D artist and a physicist
 
@@ -526,7 +528,7 @@ Introduce the three research workflows and the common human-agent operating mode
 
 ---
 
-<!-- SLIDE 27 -->
+<!-- SLIDE 26 -->
 
 # From flat reference to one coherent scene
 
@@ -546,7 +548,7 @@ Introduce the three research workflows and the common human-agent operating mode
 
 ---
 
-<!-- SLIDE 28 -->
+<!-- SLIDE 27 -->
 
 # Let the agent work the visual loop
 
@@ -571,7 +573,7 @@ Introduce the three research workflows and the common human-agent operating mode
 
 ---
 
-<!-- SLIDE 29 -->
+<!-- SLIDE 28 -->
 
 # Feedback should sound like an art director and a physicist
 
@@ -593,7 +595,7 @@ Introduce the three research workflows and the common human-agent operating mode
 
 ---
 
-<!-- SLIDE 30 -->
+<!-- SLIDE 29 -->
 
 # Replace decoration with real data
 
@@ -617,7 +619,7 @@ Introduce the three research workflows and the common human-agent operating mode
 
 ---
 
-<!-- SLIDE 31 -->
+<!-- SLIDE 30 -->
 
 # Practical advice for researchers
 
@@ -632,7 +634,7 @@ Introduce the three research workflows and the common human-agent operating mode
 
 ---
 
-<!-- SLIDE 32 -->
+<!-- SLIDE 31 -->
 
 # Limits and pitfalls
 
@@ -663,7 +665,7 @@ Introduce the three research workflows and the common human-agent operating mode
 
 ---
 
-<!-- SLIDE 33 -->
+<!-- SLIDE 32 -->
 <!-- .slide: class="closing-slide" data-background-gradient="radial-gradient(circle at 25% 80%, rgba(189,164,255,.18), transparent 34%), radial-gradient(circle at 78% 22%, rgba(214,227,106,.16), transparent 34%), #151216" -->
 
 # (Domain) expertise is now even more valuable than before
