@@ -122,16 +122,8 @@ figcaption {
   display: block;
   font-size: .68em;
   line-height: 1.15;
-  margin: .2em 0 .3em;
+  margin: .2em 0 0;
 }
-.poster-invite em {
-  color: var(--secondary);
-  display: block;
-  font-size: .45em;
-  font-style: normal;
-  font-weight: 700;
-}
-.poster-number { color: var(--text); font-style: normal; }
 .poster-transition {
   color: var(--muted);
   font-size: .41em !important;
@@ -142,33 +134,18 @@ figcaption {
   display: grid;
   justify-items: center;
 }
-.poster-figure img {
+.poster-figure a {
+  display: block;
+  line-height: 0;
+  width: 100%;
+}
+.poster-figure .paper-screenshot {
+  background: #fff;
+  border-radius: 12px;
   box-sizing: border-box;
-  height: 395px;
+  height: 430px;
   object-fit: contain;
   width: 100%;
-}
-.poster-figure figcaption { margin-top: .35em; }
-.poster-paper {
-  border-top: 1px solid var(--line);
-  display: block;
-  margin-top: .42em;
-  padding-top: .38em;
-  text-decoration: none;
-  width: 100%;
-}
-.poster-paper strong {
-  color: var(--text) !important;
-  display: block;
-  font-size: .39em;
-  line-height: 1.25;
-}
-.poster-paper span {
-  color: var(--accent);
-  display: block;
-  font-size: .29em;
-  line-height: 1.3;
-  margin-top: .25em;
 }
 
 .statement {

@@ -37,22 +37,18 @@ Introduce the three research workflows and the common human-agent operating mode
     <div class="poster-invite">
       <span>For our recent research</span>
       <strong>Visit Luca's poster today</strong>
-      <em>Poster <b class="poster-number">...</b> · during the poster session</em>
     </div>
     <p class="poster-transition">And now, let us proceed with this talk.</p>
   </div>
   <figure class="poster-figure">
-    <img class="light-frame" src="assets/images/ssp-kan-poster.png" alt="SSP-KAN architecture using four trainable MZI, VOA, and SOA modules">
-    <figcaption>Photonic Kolmogorov-Arnold network architecture using standard telecom nonlinear modules.</figcaption>
-    <a class="poster-paper" href="https://www.nature.com/articles/s41467-026-75602-8">
-      <strong>Small-scale photonic Kolmogorov-Arnold networks using standard telecom nonlinear modules</strong>
-      <span>Nature Communications · Luca Nogueira Calçado, Sergei K. Turitsyn, Egor Manuylovich</span>
+    <a href="https://www.nature.com/articles/s41467-026-75602-8">
+      <img class="paper-screenshot" src="assets/images/nature-communications-paper.png" alt="Nature Communications article page for Small-scale photonic Kolmogorov-Arnold networks using standard telecom nonlinear modules">
     </a>
   </figure>
 </div>
 
 Note:
-This talk is a little different from the research talks earlier today. It is not about our latest results, but about transferable skills for researchers. To hear about our recent work, please visit Luca's poster today during the poster session. Add the poster number before presenting. Then transition: and now, let us proceed with this talk.
+This talk is a little different from the research talks earlier today. It is not about our latest results, but about transferable skills for researchers. To hear about our recent work, please visit Luca's poster today. Then transition: and now, let us proceed with this talk.
 
 [Sources]
 - https://www.nature.com/articles/s41467-026-75602-8
