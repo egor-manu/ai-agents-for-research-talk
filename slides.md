@@ -26,30 +26,33 @@ Introduce the three research workflows and the common human-agent operating mode
 <!-- SLIDE 02 -->
 <!-- .slide: class="poster-slide" -->
 
-<div class="poster-kicker">Visit our group poster</div>
+<div class="poster-kicker">Before we begin</div>
 
-# Small-scale photonic Kolmogorov-Arnold networks
+# This talk is a little different
 
 <div class="poster-layout">
   <div class="poster-copy">
-    <p class="poster-paper-title">Using standard telecom nonlinear modules</p>
-    <p class="poster-authors">Luca Nogueira Calçado · Sergei K. Turitsyn · Egor Manuylovich</p>
-    <div class="poster-results">
-      <div><strong>94.3%</strong><span>nonlinear classification accuracy</span></div>
-      <div><strong>0.986</strong><span>R² on six-input regression</span></div>
-      <div><strong>4 to 7</strong><span>standard telecom modules</span></div>
+    <p class="poster-lead">It is not about our latest research.</p>
+    <p class="poster-skill">It is about <strong>transferable skills for researchers</strong>: using AI agents across simulation, experiments, and visualisation.</p>
+    <div class="poster-invite">
+      <span>For our recent research</span>
+      <strong>Visit Luca's poster today</strong>
+      <em>Poster <b class="poster-number">...</b> · during the poster session</em>
     </div>
-    <a class="poster-link" href="https://www.nature.com/articles/s41467-026-75602-8">Nature Communications 17, 8938 (2026)</a>
-    <p class="poster-cta">Come and ask us how trainable optical nonlinearities become network edges.</p>
+    <p class="poster-transition">And now, let us proceed with this talk.</p>
   </div>
   <figure class="poster-figure">
     <img class="light-frame" src="assets/images/ssp-kan-poster.png" alt="SSP-KAN architecture using four trainable MZI, VOA, and SOA modules">
-    <figcaption>Four physically trainable parameters per optical edge.</figcaption>
+    <figcaption>Photonic Kolmogorov-Arnold network architecture using standard telecom nonlinear modules.</figcaption>
+    <a class="poster-paper" href="https://www.nature.com/articles/s41467-026-75602-8">
+      <strong>Small-scale photonic Kolmogorov-Arnold networks using standard telecom nonlinear modules</strong>
+      <span>Nature Communications · Luca Nogueira Calçado, Sergei K. Turitsyn, Egor Manuylovich</span>
+    </a>
   </figure>
 </div>
 
 Note:
-Invite the audience to visit the group poster and briefly introduce the compact photonic KAN architecture and its experimental results.
+This talk is a little different from the research talks earlier today. It is not about our latest results, but about transferable skills for researchers. To hear about our recent work, please visit Luca's poster today during the poster session. Add the poster number before presenting. Then transition: and now, let us proceed with this talk.
 
 [Sources]
 - https://www.nature.com/articles/s41467-026-75602-8
